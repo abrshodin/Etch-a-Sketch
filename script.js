@@ -1,17 +1,26 @@
-// obtain the dimension from the user
-let numberOfDivs = 0;
 const btn = document.querySelector("button");
+let divContainer = document.querySelector("#container");
+let numberOfDivs = 16;
 
-btn.addEventListener('click', divCreator);
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+function colorAdd(event) {
+    let color = getRandomColor();
+    event.target.style.backgroundColor = color;
+}
 
 // make a grid with divs of the specified dimension
-function divCreator() {
-    numberOfDivs = Number(prompt("Please enter the number of divs"));
+function gridCreator() {
 
     let dimension = 970 / numberOfDivs;
-
-    let divContainer = document.querySelector("#container");
-
+    
     for(let i = 1; i <= numberOfDivs; i++) {
         let subDiv = document.createElement("div");
         
@@ -23,6 +32,9 @@ function divCreator() {
             let innerDiv = document.createElement("div");
             innerDiv.style.height = `${dimension}px`;
             innerDiv.style.width = `${dimension}px`
+            innerDiv.style.border = "1px solid gray";
+            // make the divs to listen mouth hover
+            innerDiv.addEventListener('mouseover', colorAdd);
             subDiv.appendChild(innerDiv);
         }
 
@@ -32,9 +44,54 @@ function divCreator() {
     }
 }
 
+function divCreator() {
+    for(let i = 1; i <= numberOfDivs; i++) {
+        let rmDiv = document.querySelector(`#subDiv${i}`);
+        rmDiv.remove();
+    }
+    // obtain the number of divs from the user
+    numberOfDivs = Number(prompt("Please enter the number of divs which doesn't exceed 100"));
+    
+    gridCreator();
+
+}
+
+do {
+    gridCreator();
+    btn.addEventListener('click', divCreator);
+
+} while(numberOfDivs > 100);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
 
 
-// make the divs to listen mouth hover
