@@ -1,4 +1,5 @@
 const btn = document.querySelector("button");
+const btn2 = document.querySelector("#reset-button");
 let divContainer = document.querySelector("#container");
 let numberOfDivs = 16;
 
@@ -56,10 +57,11 @@ function divCreator() {
 
 }
 
+
+
 do {
     gridCreator();
     btn.addEventListener('click', divCreator);
-
 } while(numberOfDivs > 100);
 
 

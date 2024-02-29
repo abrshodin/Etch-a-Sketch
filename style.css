@@ -6,8 +6,28 @@
     flex-direction: column;
     margin: 0 auto;
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .eventColor {
     background-color: red;
+}
+
+button {
+    padding: 10px;
+    width: 120px;
+    margin: 0 auto;
+
+    
+    
+}
+
+#button-div {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
