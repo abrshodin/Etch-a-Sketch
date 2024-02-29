@@ -1,0 +1,9 @@
+#container {
+    border: 2px solid gray;
+    width: 970px;
+    height: 970px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
